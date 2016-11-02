@@ -10,6 +10,9 @@
 #define SingleLetonH(methodName) + (instancetype)share##methodName;
 
 //.m 文件的视线
+
+#if __has_feature(objc_arc)
+
 #define SingleLetonM(methodName) \
 static id _instance = nil;\
 + (instancetype)allocWithZone:(struct _NSZone *)zone{\
@@ -34,6 +37,33 @@ static id _instance = nil;\
 + (instancetype)share##methodName\
 {\
     return [[self alloc] init];\
+}
+#else
+
+#define SingleLetonM(methodName) \
+static id _instance = nil;\
++ (instancetype)allocWithZone:(struct _NSZone *)zone{\
+if (_instance == nil) {\
+static dispatch_once_t onceToken;\
+dispatch_once(&onceToken, ^{\
+_instance = [super allocWithZone:zone];\
+});\
+}\
+return _instance;\
+}\
+\
+- (instancetype)init\
+{\
+static dispatch_once_t onceToken;\
+dispatch_once(&onceToken, ^{\
+_instance = [super init];\
+});\
+return _instance;\
+}\
+\
++ (instancetype)share##methodName\
+{\
+return [[self alloc] init];\
 }\
 \
 - (oneway void)release\
@@ -43,10 +73,12 @@ static id _instance = nil;\
 \
 - (instancetype)retain\
 {\
-    return self;\
+return self;\
 }\
 \
 - (NSUInteger)retainCount\
 {\
-    return 1;\
+return 1;\
 }
+
+#endif

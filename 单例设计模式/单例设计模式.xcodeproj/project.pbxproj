@@ -436,7 +436,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				INFOPLIST_FILE = "单例设计模式/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Joe.------";
@@ -448,7 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				INFOPLIST_FILE = "单例设计模式/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Joe.------";
@@ -521,6 +521,7 @@
 				D86157641DC88E3B00BA951A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D86157651DC88E3B00BA951A /* Build configuration list for PBXNativeTarget "单例设计模式Tests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +530,7 @@
 				D86157671DC88E3B00BA951A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D86157681DC88E3B00BA951A /* Build configuration list for PBXNativeTarget "单例设计模式UITests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +539,7 @@
 				D861576A1DC88E3B00BA951A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

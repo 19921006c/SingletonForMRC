@@ -10,6 +10,4 @@
 
 @interface CommonTool : NSObject
 
-+ (instancetype)shareCommonTool;
-
 @end
