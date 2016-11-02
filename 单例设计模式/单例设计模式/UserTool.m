@@ -10,4 +10,5 @@
 
 @implementation UserTool
 SingleLetonM(UserTool)
+
 @end

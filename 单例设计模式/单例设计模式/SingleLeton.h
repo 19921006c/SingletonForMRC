@@ -37,8 +37,17 @@ static id _instance = nil;\
 + (instancetype)share##methodName\
 {\
     return [[self alloc] init];\
+}\
+- (id)copyWithZone:(NSZone *)zone\
+{\
+    return _instance;\
+}\
+\
+- (id)mutableCopyWithZone:(NSZone *)zone\
+{\
+    return _instance;\
 }
-#else
+#else//MRC
 
 #define SingleLetonM(methodName) \
 static id _instance = nil;\
@@ -79,6 +88,14 @@ return self;\
 - (NSUInteger)retainCount\
 {\
 return 1;\
+}\
+- (id)copyWithZone:(NSZone *)zone\
+{\
+    return _instance;\
+}\
+\
+- (id)mutableCopyWithZone:(NSZone *)zone\
+{\
+    return _instance;\
 }
-
 #endif
